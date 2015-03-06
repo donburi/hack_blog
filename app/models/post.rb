@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
 
 	def lead
-		content.first(100) + "..."
+		content.truncate(100, separator: ' ') 
 	end
 
 	def ==(b)
