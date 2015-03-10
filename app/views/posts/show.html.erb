@@ -1,9 +1,11 @@
 <div class="container">
 
 	<div class="page-header">
-		<h1><%= @post.title %> <small>by <%= @post.author %></small></p>
+		<h1><%= @post.title %> <small>in <%= @post.category %></small></p>
+			
 	</div>
 
+	<p>by <%= @post.author %></p>
 	<p><%= @post.content %></p>
 
 	Views: <%= @post.view_count %>
