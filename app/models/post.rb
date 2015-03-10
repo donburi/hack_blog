@@ -5,7 +5,7 @@ class Post < ActiveRecord::Base
 	end
 
 	def ==(b)
-		title == b.title 
+		#title == b.title 
 	end
 
 	def by?(author)
