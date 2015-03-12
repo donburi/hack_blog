@@ -17,7 +17,7 @@ class Post < ActiveRecord::Base
 	end
 
 	def self.by(author) # self. == class method (not instance method)
-		where(author: author)
+		where("author like ?", "%#{author}%")
 	end
 
 	def self.latest(n = 2)
@@ -27,5 +27,6 @@ class Post < ActiveRecord::Base
 	def self.alphabetical
 		order(:title) 
 	end
+		
 
 end

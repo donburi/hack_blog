@@ -10,4 +10,13 @@ class PostsController < ApplicationController
 		@post.increment!(:view_count)
 	end
 
+	def new
+	end
+
+	def create
+		Post.create(title: params[:title], author: params[:author], category: params[:category], content: params[:content])
+	
+		redirect_to '/posts'
+	end
+
 end
