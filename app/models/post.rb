@@ -37,4 +37,10 @@ class Post < ActiveRecord::Base
 		where("lower(title) = ?", title.downcase)
 	end
 
+	def self.search(term)
+		matcher = "%#{term.downcase}%"
+
+		where("lower(title) like ? OR lower(content) like ?", matcher, matcher)
+	end
+
 end
