@@ -34,7 +34,7 @@ class Post < ActiveRecord::Base
 	end
 
 	def self.entitled(title)
-		where(title: title)
+		where("lower(title) = ?", title.downcase)
 	end
 
 end
