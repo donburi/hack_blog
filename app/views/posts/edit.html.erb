@@ -1,0 +1,39 @@
+<div class="container">
+
+	<div class="page-header">
+		<h1>Edit a Post</h1>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-6">
+
+	<%= form_for @post do |f| %> 
+	<div>
+		<%= f.label :title %>
+	</div>
+	<div>
+		<%= f.text_field :title %>
+	</div>
+
+	<div>
+		<%= f.label :author %>
+	</div>
+	<div>
+		<%= f.text_field :author %>
+	</div>
+
+	<div>
+		<%= f.label :content %>
+	</div>
+
+	<div>
+		<%= f.text_area :content %>
+	</div>
+
+	<%= f.submit %>
+
+	<% end %>
+		</div>
+	</div>
+</div>
+

@@ -3,14 +3,22 @@
 	<div class="container">
 
 	<div class="page-header">
-		<h1>Index <small>(<%= @posts.count %>)</small></h1>
+		<a href="/posts"><h1>Index</a> <small>(<%= @post.count %>)</small></h1>
 			
 	</div>
 
+
+	<div>
+		<%= form_tag posts_path, method: :get do %>
+			<%= text_field_tag :q, params[:q], placeholder: 'search' %>
+			<%= submit_tag 'Search' %>
+		<% end %>
+	</div>
+
 	<ul class="list-group">
-		<% @posts.each do |post| %>
+		<% @post.each do |post| %>
 			<li class="list-group-item">
-				<%= link_to(post.title, post) %> - <%= post.lead %> <span class="badge"><%= post.view_count %></span></li> 
+				<%= link_to(post.title, post) %> <span class="badge"><%= post.view_count %></span></li> 
 		<% end %>
 	</ul>
 

@@ -1,8 +1,13 @@
 class Post < ActiveRecord::Base
 
-	def lead
-		content.truncate(100, separator: ' ') 
-	end
+	validates :title, presence: true, length: { maximum: 140 }
+	validates :author, presence: true
+	validates :category, presence: true
+	validates :content, presence: true
+
+	# def lead
+	# 	content.truncate(100, separator: ' ') 
+	# end
 
 	def ==(b)
 		#self.title == b.title 
@@ -27,6 +32,9 @@ class Post < ActiveRecord::Base
 	def self.alphabetical
 		order(:title) 
 	end
-		
+
+	def self.entitled(title)
+		where(title: title)
+	end
 
 end
