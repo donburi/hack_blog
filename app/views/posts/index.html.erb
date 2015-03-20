@@ -15,12 +15,7 @@
 		<% end %>
 	</div>
 
-	<ul class="list-group">
-		<% @post.each do |post| %>
-			<li class="list-group-item">
-				<%= link_to(post.title, post) %> <span class="badge"><%= post.view_count %></span></li> 
-		<% end %>
-	</ul>
+	<%= render @post %>
 
 	<a class="btn btn-primary" href="/posts/new" role="button">Create a New Post</a>
 </div>

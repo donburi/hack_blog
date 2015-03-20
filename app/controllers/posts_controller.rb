@@ -16,8 +16,6 @@ class PostsController < ApplicationController
 
 	def new
 		@post = Post.new
-
-		render 'form'
 	end
 
 	def create
@@ -33,8 +31,6 @@ class PostsController < ApplicationController
 
 	def edit
 		@post = Post.find(params[:id])
-
-		render 'form'
 	end
 
 	def post_params

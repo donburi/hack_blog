@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 
 validates :email, presence: true
 validates :email, uniqueness: true
+validates :name, presence: true
 validates :date_of_birth, presence: true
 validate :is_over_18
 
