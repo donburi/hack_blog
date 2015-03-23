@@ -4,11 +4,15 @@
 
 	<div class="page-header">
 		<a href="/posts"><h1>Index</a> <small>(<%= @post.count %>)</small></h1>
+		
 			
 	</div>
 
 
 	<div>
+		<% if notice %>
+		<div class="alert alert-success" role="alert"><%= notice %></div>
+		<% end %>
 		<%= form_tag posts_path, method: :get do %>
 			<%= text_field_tag :q, params[:q], placeholder: 'search' %>
 			<%= submit_tag 'Search' %>

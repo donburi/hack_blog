@@ -48,7 +48,9 @@ class PostsController < ApplicationController
 	def destroy
 		Post.find(params[:id]).destroy
 
-		redirect_to '/posts'
+		respond_to do |format|
+      		format.html { redirect_to posts_url, notice: 'Post was successfully deleted.' }
+      	end
 	end
 
 
