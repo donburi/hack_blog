@@ -20,9 +20,12 @@ class PostsController < ApplicationController
 
 	def create
 		@post = Post.new(post_params)
+
 	
 		if @post.save
-			redirect_to '/posts'
+			respond_to do |format|
+      			format.html { redirect_to @post, notice: "Post entitled '#{@post.title}' was successfully created." }
+      		end
 		else
 			render 'form'
 		end
@@ -42,14 +45,18 @@ class PostsController < ApplicationController
 
 		@post.update(post_params)
 
-		redirect_to "/posts/#{params[:id]}"
+		respond_to do |format|
+      			format.html { redirect_to @post, notice: "'#{@post.title}' was successfully updated." }
+      		end
 	end
 
 	def destroy
-		Post.find(params[:id]).destroy
+		@post = Post.find(params[:id])
+
+		@post.destroy
 
 		respond_to do |format|
-      		format.html { redirect_to posts_url, notice: 'Post was successfully deleted.' }
+      		format.html { redirect_to posts_url, notice: "Post entitled '#{@post.title}' was successfully deleted." }
       	end
 	end
 

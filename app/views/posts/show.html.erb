@@ -1,6 +1,11 @@
 <div class="container">
 
 	<div class="page-header">
+		
+		<% if notice %>
+			<div class="alert alert-success" role="alert"><%= notice %></div>
+		<% end %>
+
 		<h1><%= @post.title %> <small>in <%= @post.category %></small></p>
 			
 	</div>
