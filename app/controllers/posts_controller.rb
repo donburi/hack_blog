@@ -45,5 +45,11 @@ class PostsController < ApplicationController
 		redirect_to "/posts/#{params[:id]}"
 	end
 
+	def destroy
+		Post.find(params[:id]).destroy
+
+		redirect_to '/posts'
+	end
+
 
 end

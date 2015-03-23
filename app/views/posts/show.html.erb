@@ -11,4 +11,5 @@
 	<p>Views: <%= @post.view_count %></p>
 
 	<p><%= link_to('Return to Index', posts_path) %> | <%= link_to('Edit Post', edit_post_path) %></p>
+	<p><%= link_to('Delete Post', post_path(@post.id), method: :delete) %></p>
 </div>
