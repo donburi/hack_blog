@@ -1,5 +1,8 @@
 class Post < ActiveRecord::Base
 
+	belongs_to :user
+	has_many :comments
+
 	validates :title, presence: true, length: { maximum: 140 }
 	validates :author, presence: true
 	validates :category, presence: true
@@ -41,6 +44,10 @@ class Post < ActiveRecord::Base
 		matcher = "%#{term.downcase}%"
 
 		where("lower(title) like ? OR lower(content) like ?", matcher, matcher)
+	end
+
+	def self.this_week
+		where('created_at > ?', 1.week.ago)
 	end
 
 end

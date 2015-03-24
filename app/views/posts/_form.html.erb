@@ -21,9 +21,9 @@
 		<%= f.text_field :category %>
 	</div>
 
-	<div>
-		<%= f.label :author %>
-		<%= f.text_field :author %>
+	<div class="field">
+	  <%= f.label :user_id %><br>
+	  <%= f.collection_select :user_id, User.all, :id, :email %>
 	</div>
 
 	<%= f.submit %>
