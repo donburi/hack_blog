@@ -37,7 +37,7 @@ class PostsController < ApplicationController
 	end
 
 	def post_params
-		params.require(:post).permit(:title, :content, :category, :author)
+		params.require(:post).permit(:title, :content, :category, :user_id)
 	end
 
 	def update
